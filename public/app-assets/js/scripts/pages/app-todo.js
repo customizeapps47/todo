@@ -323,6 +323,7 @@ $(function () {
 
   // To open todo list item modal on click of item
   $(document).on('click', '.todo-task-list-wrapper .todo-item', function (e) {
+    console.log('.todo-task-list-wrapper');
     newTaskModal.modal('show');
     addBtn.addClass('d-none');
     updateBtns.removeClass('d-none');

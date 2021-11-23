@@ -96,7 +96,7 @@
                         <!-- Todo List starts -->
                         <div class="todo-task-list-wrapper list-group ps ps--active-y">
                             <ul class="todo-task-list media-list" id="todo-task-list">
-                                <li class="todo-item completed" style="">
+                                <!-- <li class="todo-item completed" style="">
                                     <div class="todo-title-wrapper">
                                         <div class="todo-title-area">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
@@ -118,194 +118,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="todo-item completed">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                    <label class="custom-control-label" for="customCheck2"></label>
+                                </li> -->
+                                @foreach($works as $work)
+                                    <li class="todo-item completed">
+                                        <div class="todo-title-wrapper">
+                                            <div class="todo-title-area">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                <div class="title-wrapper">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck{{$loop->index}}">
+                                                        <label class="custom-control-label" for="customCheck{{$loop->index}}"></label>
+                                                    </div>
+                                                    <span class="todo-title">{{$work->title}}</span>
                                                 </div>
-                                                <span class="todo-title">Plan a party for development team 🎁</span>
                                             </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-primary">Team</div>
-                                                <div class="badge badge-pill badge-light-danger">High</div>
+                                            <div class="todo-des">
+                                                <span>{{$work->des}}</span>
                                             </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 30</small>
-                                            <div class="avatar bg-light-warning">
-                                                <div class="avatar-content">MB</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                                    <label class="custom-control-label" for="customCheck3"></label>
+                                            <div class="todo-item-action">
+                                                <div class="badge-wrapper mr-1">
+                                                    @if($work->status == 1)
+                                                        <div class="badge badge-pill badge-light-success">Accomplished</div>
+                                                    @elseif($work->status == 2)
+                                                        <div class="badge badge-pill badge-light-danger">Deleted</div>
+                                                    @else
+                                                        <div class="badge badge-pill badge-light-primary">Processing</div>
+                                                    @endif
                                                 </div>
-                                                <span class="todo-title">Hire 5 new Fresher or Experienced, frontend and backend developers </span>
+                                                <small class="text-nowrap text-muted mr-1">{{$work->due_date}}</small>
+                                                <!-- <div class="avatar bg-light-warning">
+                                                    <div class="avatar-content">MB</div>
+                                                </div> -->
                                             </div>
                                         </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-info">Update</div>
-                                                <div class="badge badge-pill badge-light-warning">Medium</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 28</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item completed" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck4" checked="">
-                                                    <label class="custom-control-label" for="customCheck4"></label>
-                                                </div>
-                                                <span class="todo-title">Skype Tommy for project status &amp; report</span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-danger">High</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 18</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-8.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                                    <label class="custom-control-label" for="customCheck5"></label>
-                                                </div>
-                                                <span class="todo-title">Send PPT with real-time reports</span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-warning">Medium</div>
-                                                <div class="badge badge-pill badge-light-success">Low</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 22</small>
-                                            <div class="avatar bg-light-danger">
-                                                <div class="avatar-content">LM</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                                    <label class="custom-control-label" for="customCheck6"></label>
-                                                </div>
-                                                <span class="todo-title">Submit quotation for Abid's ecommerce website and admin project </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-primary">Team</div>
-                                                <div class="badge badge-pill badge-light-success">Low</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 24</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item completed" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck7" checked="">
-                                                    <label class="custom-control-label" for="customCheck7"></label>
-                                                </div>
-                                                <span class="todo-title">Reminder to mail clients for holidays</span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-primary">Team</div>
-                                                <div class="badge badge-pill badge-light-warning">Medium</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 27</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-4.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                                    <label class="custom-control-label" for="customCheck8"></label>
-                                                </div>
-                                                <span class="todo-title">Refactor Code and fix the bugs and test it on server </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-success">Low</div>
-                                                <div class="badge badge-pill badge-light-warning">Medium</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 27</small>
-                                            <div class="avatar bg-light-success">
-                                                <div class="avatar-content">KL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck9">
-                                                    <label class="custom-control-label" for="customCheck9"></label>
-                                                </div>
-                                                <span class="todo-title">List out all the SEO resources and send it to new SEO team. </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <small class="text-nowrap text-muted mr-1">Sept 15</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
                                 <li class="todo-item" style="">
                                     <div class="todo-title-wrapper">
                                         <div class="todo-title-area">
@@ -345,120 +192,6 @@
                                             <small class="text-nowrap text-muted mr-1">Aug 17</small>
                                             <div class="avatar bg-light-primary">
                                                 <div class="avatar-content">PK</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck12">
-                                                    <label class="custom-control-label" for="customCheck12"></label>
-                                                </div>
-                                                <span class="todo-title">Plan new dashboard design with design team for Google app store. </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-info">Update</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Sept 02</small>
-                                            <div class="avatar bg-light-danger">
-                                                <div class="avatar-content">LO</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck13">
-                                                    <label class="custom-control-label" for="customCheck13"></label>
-                                                </div>
-                                                <span class="todo-title">Conduct a mini awareness meeting regarding health care. </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <small class="text-nowrap text-muted mr-1">Sept 05</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-17.jpg" alt="user-avatar" height="32" width="32">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item completed" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck14" checked="">
-                                                    <label class="custom-control-label" for="customCheck14"></label>
-                                                </div>
-                                                <span class="todo-title">Test functionality of apps developed by dev team for enhancements. </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-danger">High</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Sept 07</small>
-                                            <div class="avatar bg-light-info">
-                                                <div class="avatar-content">VB</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck15">
-                                                    <label class="custom-control-label" for="customCheck15"></label>
-                                                </div>
-                                                <span class="todo-title">Answer the support tickets and close completed tickets. </span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-primary">Frontend</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Sept 12</small>
-                                            <div class="avatar bg-light-success">
-                                                <div class="avatar-content">SW</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="todo-item" style="">
-                                    <div class="todo-title-wrapper">
-                                        <div class="todo-title-area">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                            <div class="title-wrapper">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck16">
-                                                    <label class="custom-control-label" for="customCheck16"></label>
-                                                </div>
-                                                <span class="todo-title">Meet Jane and ask for coffee ❤️</span>
-                                            </div>
-                                        </div>
-                                        <div class="todo-item-action">
-                                            <div class="badge-wrapper mr-1">
-                                                <div class="badge badge-pill badge-light-info">Update</div>
-                                                <div class="badge badge-pill badge-light-warning">Medium</div>
-                                                <div class="badge badge-pill badge-light-success">Low</div>
-                                            </div>
-                                            <small class="text-nowrap text-muted mr-1">Aug 10</small>
-                                            <div class="avatar">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" alt="user-avatar" height="32" width="32">
                                             </div>
                                         </div>
                                     </div>
@@ -523,7 +256,7 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label for="task-due-date" class="form-label">Due Date</label>
-                                                <input type="text" class="form-control task-due-date flatpickr-input" id="task-due-date" name="task-due-date" readonly="readonly">
+                                                <input type="text" class="form-control task-due-date flatpickr-input" id="task-due-date" name="task_due_date" readonly="readonly">
                                             </div>
                                             <!-- <div class="form-group">
                                                 <label for="task-tag" class="form-label d-block">Tag</label>
@@ -537,7 +270,8 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">Description</label>
-                                                <div id="task-desc" class="border-bottom-0 ql-container ql-snow" data-placeholder="Write Your Description"><div class="ql-editor ql-blank" data-gramm="false" contenteditable="true" data-placeholder="Write Your Description"><p><br></p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+                                                <textarea id="task-desc" name="task_desc" rows="4" cols="50" class="border-bottom-0 ql-container ql-snow" data-placeholder="Write Your Description"></textarea>
+                                                <!-- <div id="task-desc" class="border-bottom-0 ql-container ql-snow" data-placeholder="Write Your Description"><div class="ql-editor ql-blank" data-gramm="false" contenteditable="true" data-placeholder="Write Your Description"><p><br></p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
                                                 <div class="d-flex justify-content-end desc-toolbar border-top-0 ql-toolbar ql-snow">
                                                     <span class="ql-formats mr-0">
                                                         <button class="ql-bold" type="button"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button>
@@ -546,7 +280,7 @@
                                                         <button class="ql-align" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="3" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="13" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="9" y1="4" y2="4"></line> </svg></button>
                                                         <button class="ql-link" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button>
                                                     </span>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="form-group my-1">

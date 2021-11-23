@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use Auth;
+
 
 class WorkController extends Controller
 {
@@ -14,7 +18,8 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        $works = Work::all();
+        return view('welcome',compact(['works']));
     }
 
     /**
@@ -35,7 +40,56 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+        $this->validateWork = [
+            'title' => 'required|max:100',
+            'due_date' => 'required',
+            'des' => 'required',
+        ];
+        $this->validateWorkErr = [
+            'title.required' => 'Please enter name title!',
+            'title.max' => 'Custom font wrong format!',
+            'due_date.required' => 'Please choose Due Date!',
+            'des.required' => 'Please enter name des!',
+        ];
+
+        /* validate request */
+        $validator = Validator::make($request->all(), $this->validateWork, $this->validateWorkErr);
+
+        if ($validator->fails()) {
+            return response()->json(
+                [
+                    'type' => 'error',
+                    'title' => 'Thất bại',
+                    'content' => $validator->errors()->all(),
+                ], 400
+            );
+        }
+
+        $input = [
+            'title'=>$request->todoTitleAdd,
+            'due_date'=>$request->task_due_date,
+            'des'=>$request->task_desc,
+        ];
+        
+        $work = Work::create($input);
+        if($work){
+            return response()->json(
+                [
+                    'type' => 'success',
+                    'title' => 'Success',
+                    'content' => $work,
+                ], 400
+            );
+        }
+
+        return response()->json(
+            [
+                'type' => 'error',
+                'title' => 'Thất bại',
+                'content' => null,
+            ], 400
+        );
     }
 
     /**

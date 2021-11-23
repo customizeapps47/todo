@@ -5861,7 +5861,7 @@
 
         var textRects = graphics.getTextRects(val, fontSize);
         var width = textRects.width;
-        var height = textRects.height; // first value in series, so push an empty array
+        var height = textRects.height; // first value in series, so push pty array
 
         if (typeof w.globals.dataLabelsRects[i] === 'undefined') w.globals.dataLabelsRects[i] = []; // then start pushing actual rects in that sub-array
 
